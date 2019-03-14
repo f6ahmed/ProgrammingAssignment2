@@ -1,5 +1,10 @@
-## Put comments here that give an overall description of what your functions do
-## This function takes a matrix and creates a special vector which is a list containing functions
+## These 2 functions can cache matrix inverse computation to save time
+
+## The first function, makeCacheMatrix creates a special "vector", which is really a list containing a function to
+## set the value of the vector
+## get the value of the vector
+## set the value of the matrix inverse
+## get the value of the matrix inverse
 #
 makeCacheMatrix <- function(x = matrix()) {
 inverse_var <- NULL
@@ -15,7 +20,9 @@ inverse_var <- NULL
           getinverse = getinverse)
 }
 #
-## This function caches the inverse variable
+## ## This function calculates the inverse of the special "matrix" returned by 
+## makeCacheMatrix above. If the inverse was already calculated, then the cachesolve retrieves the 
+## inverse from the cache.
 #
 cacheSolve <- function(x, ...) {
      inverse_var <- x$getinverse()
